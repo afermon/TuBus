@@ -1,0 +1,26 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Lista de rutas";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Ruta/vLista.js"></script>
+}
+
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vLista", id: "listarutas", title: "Lista de Rutas",
+        columnsTitle: "Id,Nombre,Descripción,Costo Km (CRC),Distancia (Km), Estado,Acciones", columnsDataName: "Id,RutaName,RutaDescripcion,CostoKm,Distancia,Estado,Acciones", onSelectFunction: "ActionControls")
+    </div>
+</div>
+

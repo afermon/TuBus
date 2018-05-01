@@ -1,0 +1,24 @@
+﻿CREATE PROCEDURE [dbo].[UPD_USUARIO_PR]
+	@P_EMAIL nvarchar(50)
+    ,@P_IDENTIFICACION nvarchar(50)
+    ,@P_NOMBRE nvarchar(50)
+    ,@P_APELLIDOS nvarchar(50)
+    ,@P_FECHA_NACIMIENTO date
+    ,@P_ESTADO nvarchar(50)
+    ,@P_ROLE_ID nvarchar(50)
+	,@P_NOTIFY_USER_AT int
+	,@P_PHONE int
+	,@P_TERMINAL_ID int = null
+AS
+	UPDATE [dbo].[TBL_USUARIO]
+	   SET [IDENTIFICACION] = @P_IDENTIFICACION
+		  ,[NOMBRE] = @P_NOMBRE
+		  ,[APELLIDOS] = @P_APELLIDOS
+		  ,[FECHA_NACIMIENTO] = @P_FECHA_NACIMIENTO
+		  ,[ESTADO] = @P_ESTADO
+		  ,[ROLE_ID] = @P_ROLE_ID
+		  ,[NOTIFY_USER_AT] = @P_NOTIFY_USER_AT
+		  ,[PHONE] = @P_PHONE
+		  ,[TERMINAL_ID] = @P_TERMINAL_ID
+	 WHERE [EMAIL] = @P_EMAIL
+RETURN 0

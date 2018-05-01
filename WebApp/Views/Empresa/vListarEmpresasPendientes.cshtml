@@ -1,0 +1,45 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Lista de Empresas Pendientes";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Empresa/vListarEmpresasPendientes.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vListarEmpresa", id: "listaEmpresa", title: "Empresas",
+                                   columnsTitle: "Cedula Jurídica,Nombre de Empresa,Email de Encargado,Telefono,Estado,Acciones", columnsDataName: "CedulaJuridica,NombreEmpresa,EmailEncargado,Telefono,Estado,Acciones", onSelectFunction: "ActionControls")
+
+        <div class="modal fade" id="modalRechazar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Rechazar Solicitud</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="rechazoRazon">Ingrese la razón del rechazo:</label>
+                        <textarea class="form-control" id="rechazoRazon" rows="3" columnDataName="Rechazo"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" id="enviarRechazo" class="btn btn-primary">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

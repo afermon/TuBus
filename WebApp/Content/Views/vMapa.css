@@ -1,0 +1,12 @@
+﻿#mapa-rutas {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    position: relative;
+    top: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}

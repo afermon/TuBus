@@ -1,0 +1,48 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Modificar Rol";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    <link rel="stylesheet" href="~/Content/views/index.css">
+}
+<!-- Scripts -->
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/Views/Rol/vModificarRol.js"></script>
+}
+
+<div class="col-md-6">
+    <div class="card mb-3">
+        <div class="card-header"><i class="fa fa-wpforms"></i> Modificar Rol</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form id="frmEdition">
+                        @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "RoleId", placeHolder: "Digite el nombre del rol")
+
+                        <div class="form-group">
+                            <label for="txtDescripcion">Página de Inicio</label>
+                            <select class="form-control" id="txtHomePage" columndataname="HomePage" aria-invalid="false">
+                                <option value="/Dashboard/vAdministrador">Dashboard Administrador</option>
+                                <option value="/Dashboard/vTerminal">Dashboard Terminal</option>
+                                <option value="/Dashboard/vEmpresario">Dashboard Empresario</option>
+                                <option value="/Dashboard/vPasajero">Dashboard Pasajero</option>
+                            </select>
+                        </div>
+
+                        @Html.CtrlInput(id: "txtDescripcion", type: "text", label: "Descripción", columnDataName: "Descripcion", placeHolder: "Digite la descripción")
+                        @Html.CtrlComboBox(id: "Vistas", label: "Vistas asignadas", columnDataName: "Vistas", onlyread: false, classAttribute: "selectpicker", multiple: true)
+
+                        @Html.CtrlButton(viewName: "vModificarRol", id: "btnModificarRol", label: "Actualizar", onClickFunction: "Modificar", buttonType: "btn btn-primary btn-block")
+                    </form>
+                    <br>
+                    <label id="error"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

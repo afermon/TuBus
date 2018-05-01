@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{ee602dcf-faea-40c4-b0e1-967713d42792}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Database</RootNamespace>
+    <AssemblyName>Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Tables\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="Stored Procedures\" />
+    <Folder Include="Snapshots" />
+    <Folder Include="Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\TBL_BUS.sql" />
+    <Build Include="Tables\TBL_CONVENIO.sql" />
+    <Build Include="Tables\TBL_EMPRESA.sql" />
+    <Build Include="Tables\TBL_REGISTROPARQUEO.sql" />
+    <Build Include="Tables\TBL_ESTADO_TARJETA.sql" />
+    <Build Include="Tables\TBL_HORARIO.sql" />
+    <Build Include="Tables\TBL_LINEA.sql" />
+    <Build Include="Tables\TBL_LINEASANCION.sql" />
+    <Build Include="Tables\TBL_LIST.sql" />
+    <Build Include="Tables\TBL_PARQUEO.sql" />
+    <Build Include="Tables\TBL_QUEJAS.sql" />
+    <Build Include="Tables\TBL_RECORRIDO.sql" />
+    <Build Include="Tables\TBL_REQUESITO.sql" />
+    <Build Include="Tables\TBL_ROLE.sql" />
+    <Build Include="Tables\TBL_RUTA.sql" />
+    <Build Include="Tables\TBL_SANCION.sql" />
+    <Build Include="Tables\TBL_TARJETA.sql" />
+    <Build Include="Tables\TBL_TERMINAL.sql" />
+    <Build Include="Tables\TBL_TIPOTARJETA.sql" />
+    <Build Include="Tables\TBL_TRANSACCION.sql" />
+    <Build Include="Tables\TBL_USUARIO.sql" />
+    <Build Include="Tables\TBL_VISTA.sql" />
+    <Build Include="Tables\TBL_CONFIGURACION_TERMINAL.sql" />
+    <Build Include="Stored Procedures\RET_LIST_ID_PR.sql" />
+    <Build Include="Stored Procedures\CRE_TERMINAL_PR.sql" />
+    <Build Include="Stored Procedures\CRE_TIPO_TARJETA.sql" />
+    <Build Include="Stored Procedures\RET_LIST_TIPO_TARJETA.sql" />
+    <Build Include="Stored Procedures\RET_TIPO_TARJETA_BY_ID.sql" />
+    <Build Include="Stored Procedures\UPD_TIPO_TARJETA.sql" />
+    <Build Include="Stored Procedures\DEL_TIPO_TARJETA.sql" />
+    <Build Include="Stored Procedures\CRE_TARJETA.sql" />
+    <Build Include="Stored Procedures\UPD_TARJETA.sql" />
+    <Build Include="Stored Procedures\RET_LIST_TARJETA.sql" />
+    <Build Include="Stored Procedures\RET_TARJETA_BY_ID.sql" />
+    <Build Include="Stored Procedures\DEL_TARJETA.sql" />
+    <Build Include="Tables\TBL_CONFIGURACION.sql" />
+    <Build Include="Tables\TBL_HISTORIAL_PASSWORD.sql" />
+    <PostDeploy Include="Data\INITIAL_DATA.sql" />
+    <Build Include="Stored Procedures\RET_USUARIO_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_USUARIO_PR.sql" />
+    <Build Include="Tables\TBL_APP_CLAIM.sql" />
+    <Build Include="Tables\TBL_VISTA_CLAIM.sql" />
+    <Build Include="Tables\TBL_ROLE_VISTA.sql" />
+    <Build Include="Stored Procedures\RET_APP_CLAIM_VISTA_PR.sql" />
+    <Build Include="Stored Procedures\RET_APP_CLAIM_ROLE_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_VISTA_PR.sql" />
+    <Build Include="Stored Procedures\RET_VISTA_PR.sql" />
+    <Build Include="Stored Procedures\RET_VISTA_ROLE_PR.sql" />
+    <Build Include="Stored Procedures\CRE_ROLE_PR.sql" />
+    <Build Include="Stored Procedures\DEL_ROLE_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_ROLE_PR.sql" />
+    <Build Include="Stored Procedures\RET_ROLE_PR.sql" />
+    <Build Include="Stored Procedures\UPD_ROLE_PR.sql" />
+    <Build Include="Stored Procedures\CRE_USUARIO_PR.sql" />
+    <Build Include="Stored Procedures\UPD_USUARIO_PR.sql" />
+    <Build Include="Stored Procedures\DEL_USUARIO_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_TERMINAL_PR.sql" />
+    <Build Include="Stored Procedures\RET_TERMINAL_BY_ID_PR.sql" />
+    <Build Include="Stored Procedures\RET_TERMINAL_BY_NAME_PR.sql" />
+    <Build Include="Stored Procedures\CRE_QUEJA_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_RUTA_PR.sql" />
+    <Build Include="Stored Procedures\RET_CONFIGURACION_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_CONFIGURACION_PR.sql" />
+    <Build Include="Stored Procedures\UPD_CONFIGURACION_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_CONFIGURACION_TERMINAL_PR.sql" />
+    <Build Include="Stored Procedures\CRE_CONFIGURACION_TERMINAL_PR.sql" />
+    <Build Include="Stored Procedures\RET_CONFIGURACION_TERMINAL_PR.sql" />
+    <Build Include="Stored Procedures\UPD_CONFIGURACION_TERMINAL_PR.sql" />
+    <Build Include="Stored Procedures\DEL_CONFIGURACION_TERMINAL_PR.sql" />
+    <Build Include="Stored Procedures\CRE_HISTORIAL_CONTRASENA_PR.sql" />
+    <Build Include="Stored Procedures\DEL_HISTORIAL_CONTRASENA_PR.sql" />
+    <Build Include="Stored Procedures\RET_HISTORIAL_CONTRASENA_PR.sql" />
+    <Build Include="Stored Procedures\UPD_USUARIO_PASSWORD_PR.sql" />
+    <Build Include="Stored Procedures\RET_LIST_TARJETAS_BY_USER.sql" />
+    <Build Include="Stored Procedures\UPD_TERMINAL_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_QUEJA_PR.sql" />
+    <Build Include="Stored Procedures\RET_QUEJA_BY_ID_PR.sql" />
+    <Build Include="Stored Procedures\RET_QUEJAS_ACTIVA_PR.sql" />
+    <Build Include="Stored Procedures\DEL_QUEJA_PR.sql" />
+    <Build Include="Stored Procedures\UPD_USUARIO_RESET_PR.sql" />
+    <Build Include="Stored Procedures\CRE_SANCION_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_SANCION_PR.sql" />
+    <Build Include="Stored Procedures\UPD_SANCION_PR.sql" />
+    <Build Include="Stored Procedures\UPD_SALDO_TARJETA.sql" />
+    <Build Include="Stored Procedures\CRE_TRANSACCION_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_TRANSACTIONS_BY_USER.sql" />
+    <Build Include="Stored Procedures\RET_ALL_TRANSACTIONS_BY_TERMID.sql" />
+    <Build Include="Stored Procedures\RET_ALL_TRANSACTIONS_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_REGISTRO_PARQUEO_PR.sql" />
+    <Build Include="Stored Procedures\DEL_TERMINAL_PR.sql" />
+    <Build Include="Stored Procedures\RET_ESPACIOS_DISPONIBLES_PR.sql" />
+    <Build Include="Stored Procedures\CRE_SALIDA_PARQUEO_PR.sql" />
+    <Build Include="Stored Procedures\CRE_CONVENIO_PR.sql" />
+    <Build Include="Stored Procedures\RET_CONVENIO_BY_ID.sql" />
+    <Build Include="Stored Procedures\RET_ALL_CONVENIO_PR.sql" />
+    <Build Include="Stored Procedures\UPD_CONVENIO_PR.sql" />
+    <Build Include="Stored Procedures\DEL_CONVENIO_PR.sql" />
+    <Build Include="Stored Procedures\DEL_SANCION_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_SANCION_ACTIVAS_PR.sql" />
+    <Build Include="Stored Procedures\UPD_TARJETA_ESTADO_PR.sql" />
+    <Build Include="Stored Procedures\RET_TARJETAS_REPOSICION_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_ESTADOS_TARJETA.sql" />
+    <Build Include="Stored Procedures\RET_ESTADO_BY_ID.sql" />
+    <Build Include="Stored Procedures\RET_REGISTRO_PARQUEO_ACTIVO_PR.sql" />
+    <Build Include="Stored Procedures\CRE_REGISTRO_PARQUEO_PR.sql" />
+    <Build Include="Stored Procedures\RET_VISTA_POR_ROLE_VISTA_PR.sql" />
+    <Build Include="Stored Procedures\CRE_VISTA_ROL_PR.sql" />
+    <Build Include="Stored Procedures\UPD_ROLE_ESTADO_PR.sql" />
+    <Build Include="Stored Procedures\RET_ROLE_VISTA_PR.sql" />
+    <Build Include="Stored Procedures\RET_QUEJAS_ACTIVA_BY_RUTA_PR.sql" />
+    <Build Include="Stored Procedures\CRE_LINEA_PR.sql" />
+    <Build Include="Stored Procedures\RET_LINEA_BY_ID.sql" />
+    <Build Include="Stored Procedures\RET_ALL_LINEA_PR.sql" />
+    <Build Include="Stored Procedures\UPD_LINEA_PR.sql" />
+    <Build Include="Stored Procedures\DEL_LINEA_PR.sql" />
+    <Build Include="Tables\TBL_MULTA.sql" />
+    <Build Include="Stored Procedures\CRE_MULTA_PR.sql" />
+    <Build Include="Tables\TBL_TARIFA.sql" />
+    <Build Include="Stored Procedures\RET_ALL_TARIFA_PR.sql" />
+    <Build Include="Stored Procedures\CRE_TARIFA_PR.sql" />
+    <Build Include="Stored Procedures\RET_TARIFA_PR.sql" />
+    <Build Include="Stored Procedures\CRE_RUTA_PR.sql" />
+    <Build Include="Stored Procedures\DEL_RUTA_PR.sql" />
+    <Build Include="Stored Procedures\RET_RUTA_PR.sql" />
+    <Build Include="Stored Procedures\UPD_RUTA_PR.sql" />
+    <Build Include="Stored Procedures\RET_RUTA_TERMINAL_PR.sql" />
+    <Build Include="Stored Procedures\CRE_HORARIO_PR.sql" />
+    <Build Include="Stored Procedures\DEL_HORARIO_PR.sql" />
+    <Build Include="Stored Procedures\RET_HORARIO_PR.sql" />
+    <Build Include="Stored Procedures\RET_ESPACIO_DISPONIBLE_PARQUEO.sql" />
+    <Build Include="Stored Procedures\CRE_BUS_PR.sql" />
+    <Build Include="Stored Procedures\RET_BUS_POR_PLACA_PR.sql" />
+    <Build Include="Stored Procedures\CRE_REQUISITO_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_BUS_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_EMPRESA_PR.sql" />
+    <Build Include="Stored Procedures\RET_EMPRESA_BY_ID.sql" />
+    <Build Include="Stored Procedures\RET_CONVENIO_BY_TERMINAL_ID.sql" />
+    <Build Include="Stored Procedures\RET_ALL_MULTA_PR.sql" />
+    <Build Include="Stored Procedures\DEL_MULTA_PR.sql" />
+    <Build Include="Stored Procedures\UPD_BUS_ESTADO_PR.sql" />
+    <Build Include="Stored Procedures\UPD_BUS_PR.sql" />
+    <Build Include="Stored Procedures\UPD_MULTA_PR.sql" />
+    <Build Include="Stored Procedures\RET_REQUISITOS_POR_PLACA_PR.sql" />
+    <Build Include="Stored Procedures\CRE_EMPRESA_PR.sql" />
+    <Build Include="Tables\TBL_CONVENIO_TERMINAL.sql" />
+    <Build Include="Stored Procedures\CRE_CONVENIO_TERMINAL_PR.sql" />
+    <Build Include="Stored Procedures\UPD_CONVENIO_DEL.sql" />
+    <Build Include="Tables\TBL_SOLICITUDES.sql" />
+    <Build Include="Stored Procedures\CRE_SOLICITUD_TARJETA.sql" />
+    <Build Include="Stored Procedures\RET_SOLICITUD_BY_ID.sql" />
+    <Build Include="Stored Procedures\RET_ALL_SOLICITUD.sql" />
+    <Build Include="Stored Procedures\UPD_SOLICITUD.sql" />
+    <Build Include="Tables\TBL_CHOFER.sql" />
+    <Build Include="Stored Procedures\CRE_CHOFER_PR.sql" />
+    <Build Include="Stored Procedures\RET_CHOFER_BY_CEDULA_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_CHOFER_PR.sql" />
+    <Build Include="Stored Procedures\UPD_CHOFER_PR.sql" />
+    <Build Include="Stored Procedures\RET_EMPRESA_BY_EMPRESARIO_PR.sql" />
+    <Build Include="Stored Procedures\UPD_REQUISITO_PR.sql" />
+    <Build Include="Stored Procedures\UPD_EMPRESA_ESTADO.sql" />
+    <Build Include="Stored Procedures\RET_ALL_EMPRESAS_PENDIENTES_PR.sql" />
+    <Build Include="Stored Procedures\UPD_EMPRESA_PENDIENTE_PR.sql" />
+    <Build Include="Stored Procedures\DEL_CHOFER_PR.sql" />
+    <Build Include="Stored Procedures\CRE_RECORRIDO_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_RECORRIDO_PR.sql" />
+    <Build Include="Stored Procedures\RET_RECORRIDO_PR.sql" />
+    <Build Include="Stored Procedures\UPD_RECORRIDO_SALIDA_PR.sql" />
+    <Build Include="Stored Procedures\UPD_RECORRIDO_LLEGADA_PR.sql" />
+    <Build Include="Stored Procedures\UPD_RECORRIDO_PASAJEROS_PR.sql" />
+    <Build Include="Stored Procedures\UPD_EMPRESA_PR.sql" />
+    <Build Include="Tables\TBL_PAGOS_PENDIENTES.sql" />
+    <Build Include="Stored Procedures\CRE_PAGOPENDIENTE_PR.sql" />
+    <Build Include="Stored Procedures\UPD_PAGOPENDIENTE_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_PAGOS_BY_EMPRESA.sql" />
+    <Build Include="Stored Procedures\RET_ALL_GANANCIAS_ALL_TERMINALES.sql" />
+    <Build Include="Stored Procedures\RET_GANACIAS_ALL_TIPOS_TARJETAS.sql" />
+    <Build Include="Stored Procedures\RET_ALL_COUNT_TIPO_TRANSACTION.sql" />
+    <Build Include="Stored Procedures\RET_CHOFER_BY_RUTA_PR.sql" />
+    <Build Include="Stored Procedures\RET_RUTA_EMPRESA_PR.sql" />
+    <Build Include="Stored Procedures\RET_RECORRIDO_TARDIA_MES_PR.sql" />
+    <Build Include="Stored Procedures\RET_MOVIMIENTOS_USUARIO.sql" />
+    <Build Include="Stored Procedures\RET_TARIFA_OPERADORES_PR.sql" />
+    <Build Include="Stored Procedures\RET_ALL_OPERADOR_PR.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Database.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Database.refactorlog" />
+  </ItemGroup>
+</Project>

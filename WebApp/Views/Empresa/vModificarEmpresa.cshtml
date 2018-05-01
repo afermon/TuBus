@@ -1,0 +1,39 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Modificar Empresa";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    <link rel="stylesheet" href="~/Content/views/index.css">
+}
+<!-- Scripts -->
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/Views/Empresa/vModificarEmpresa.js"></script>
+}
+
+<div class="col-md-6">
+    <div class="card mb-3">
+        <div class="card-header"><i class="fa fa-wpforms"></i> Modificar Empresa</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form id="frmEdition">
+                        @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre: ", placeHolder: "Digite el nombre de la empresa", columnDataName: "NombreEmpresa")
+                        @Html.CtrlInput(id: "txtCedulaJuridica", type: "number", label: "Cédula Jurídica: ", placeHolder: "Digite la cédula jurídica de la empresa", columnDataName: "CedulaJuridica")
+                        @Html.CtrlInput(id: "txtNumContacto", type: "text", label: "Teléfono de Contacto: ", placeHolder: "Digite el teléfono de contacto", columnDataName: "Telefono")
+                        @Html.CtrlInput(id: "txtCorreo", type: "email", label: "Correo electrónico del encargado: ", placeHolder: "Digite el correo electrónico del encargado", columnDataName: "EmailEncargado")
+                        
+                        @Html.CtrlButton(viewName: "vModificarEmpresa", id: "btnModificarEmpresa", label: "Modificar", onClickFunction: "Create", buttonType: "btn btn-primary btn-block")
+                    </form>
+                    <br>
+                    <label id="error"></label>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

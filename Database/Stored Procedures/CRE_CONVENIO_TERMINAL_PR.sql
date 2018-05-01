@@ -1,0 +1,18 @@
+﻿CREATE PROCEDURE [dbo].[CRE_CONVENIO_TERMINAL_PR]
+    @P_CEDULA_JURIDICA int,
+	@P_TERMINAL_ID int
+AS 
+	Begin
+		SET NOCOUNT ON;  
+		INSERT INTO TBL_CONVENIO_TERMINAL
+          ( 
+			CEDULA_JURIDICA,
+			TERMINAL_ID
+          ) 
+     VALUES 
+          ( 
+            @P_CEDULA_JURIDICA,
+			@P_TERMINAL_ID
+          ) 	
+	End
+Go

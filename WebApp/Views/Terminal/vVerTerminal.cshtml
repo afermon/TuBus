@@ -1,0 +1,57 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Información de Terminal";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    <link rel="stylesheet" href="~/Content/views/vRegistrarTerminal.css">
+}
+<!-- Scripts -->
+@section Scripts {
+    <script src="~/Scripts/Views/Terminal/vVerTerminal.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8rX5rq-Ev5tUVYLqhFUwmQS1kwcrJfSU&callback=cargarMapaLugares"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-wpforms"></i> Información de Terminal</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtTerminalName", type: "text", label: "Nombre Terminal", columnDataName: "TerminalName", placeHolder: "Digite el nombre de la terminal", onlyread: true)
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>Localización geográfica</h3>
+                                        <p>Haga clic sobre la localización en el mapa.</p>
+                                    </div>
+                                    <div class="col-md-12" id="mapa-lugar"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        @Html.CtrlInput(id: "nLongitude", type: "number", label: "Longitude", columnDataName: "Longitude", placeHolder: "Digite la longitud", onlyread: true)
+                                    </div>
+                                    <div class="col-lg-6">
+                                        @Html.CtrlInput(id: "nLatitude", type: "number", label: "Latitude", columnDataName: "Latitude", placeHolder: "Digite la latitud", onlyread: true)
+                                    </div>
+                                </div>
+
+
+                                @Html.CtrlInput(id: "nCantidadLineas", type: "number", label: "Cantidad de Lineas", columnDataName: "CantidadLineas", placeHolder: "Digite la cantidad de líneas", onlyread: true)
+                                @Html.CtrlInput(id: "nEspaciosParqueo", type: "number", label: "Espacios de parqueo", columnDataName: "EspaciosParqueo", placeHolder: "Digite el # de espacios disponibles", onlyread: true)
+
+                            </form>
+                            <br>
+                            <label id="error"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

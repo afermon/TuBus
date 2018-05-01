@@ -1,0 +1,159 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Modificar Ruta";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+    <link rel="stylesheet" href="~/Content/views/vRegistrarTerminal.css">
+}
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/Ruta/vModificar.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8rX5rq-Ev5tUVYLqhFUwmQS1kwcrJfSU&callback=cargarMapa"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-fw fa-map-o"></i> Registrar Ruta</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="frmEdition">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    @Html.CtrlInput(id: "nId", type: "number", label: "ID:", columnDataName: "Id", placeHolder: "0", onlyread: true)
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.CtrlComboBox(id: "cbTarifa", label: "Ruta (ARESEP):", columnDataName: "TarifaId")
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.CtrlComboBox(id: "cbEstado", label: "Estado:", columnDataName: "Estado")
+                                </div>
+                            </div>
+                            @Html.CtrlTextArea(id: "txtRutaDescripcion", type: "text", label: "Descripción:", columnDataName: "RutaDescripcion", placeHolder: "notas..")
+                            <div class="row">
+                                <div class="col-md-4">
+                                    @Html.CtrlComboBox(id: "cbEmpresa", label: "Empresa:", columnDataName: "EmpresaId")
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.CtrlComboBox(id: "cbTerminal", label: "Terminal:", columnDataName: "TerminalId")
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.CtrlComboBox(id: "cbLinea", label: "Linea:", columnDataName: "LineaId")
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>Ruta</h3>
+                                    <p>Haga clic en el mapa sobre el destino de la ruta y ajuste la ruta recomendada a el trayecto real. </p>
+                                </div>
+                                <div class="col-md-12" id="mapa-lugar"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    @Html.CtrlInput(id: "nDistancia", type: "number", label: "Distancia (Km):", columnDataName: "Distancia", placeHolder: "0", onlyread: true)
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.CtrlInput(id: "nCostoTotal", type: "number", label: "Costo total (CRC):", columnDataName: "CostoTotal", placeHolder: "0", onlyread: true)
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.CtrlInput(id: "nCostoKm", type: "number", label: "Costo por Km (CRC):", columnDataName: "CostoKm", placeHolder: "0", onlyread: true)
+                                </div>
+                            </div>
+                            <div class="row d-none">
+                                <div class="col-md-6">
+                                    @Html.CtrlInput(id: "nDestinoLatitude", type: "number", label: "Latitud destino:", columnDataName: "DestinoLatitude", placeHolder: "Haga clic en el mapa.", onlyread: true)
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.CtrlInput(id: "nDestinoLongitude", type: "number", label: "Longitud destino:", columnDataName: "DestinoLongitude", placeHolder: "Haga clic en el mapa.", onlyread: true)
+                                </div>
+                            </div>
+
+                        </form>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>Horario:</h3>
+                            </div>
+                            <div class="col-md-12 alert alert-light">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        @Html.CtrlComboBox(id: "cbDia", label: "Dia(s):", columnDataName: "dia", multiple: true)
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.CtrlDatetimePicker(id: "dpHora", format: "HH:mm", label: "Hora:", columnDataName: "Hora")
+                                    </div>
+                                    <div class="col-md-4 align-self-center">
+                                        @Html.CtrlButton(viewName: "vModificar", id: "btnAgregarHora", label: "Agregar", onClickFunction: "AddTime", buttonType: "success btn-block")
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table text-center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Lunes</th>
+                                                <th scope="col">Martes</th>
+                                                <th scope="col">Miércoles</th>
+                                                <th scope="col">Jueves</th>
+                                                <th scope="col">Viernes</th>
+                                                <th scope="col">Sábado</th>
+                                                <th scope="col">Domingo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <ul class="list-group list-group-flush" id="dia-1">
+                                                        <li class="list-group-item text-danger">Sin servicio</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="list-group list-group-flush" id="dia-2">
+                                                        <li class="list-group-item text-danger">Sin servicio</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="list-group list-group-flush" id="dia-3">
+                                                        <li class="list-group-item text-danger">Sin servicio</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="list-group list-group-flush" id="dia-4">
+                                                        <li class="list-group-item text-danger">Sin servicio</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="list-group list-group-flush" id="dia-5">
+                                                        <li class="list-group-item text-danger">Sin servicio</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="list-group list-group-flush" id="dia-6">
+                                                        <li class="list-group-item text-danger">Sin servicio</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul class="list-group list-group-flush" id="dia-7">
+                                                        <li class="list-group-item text-danger">Sin servicio</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        @Html.CtrlButton(viewName: "vModificar", id: "btnActualizarRuta", label: "Actualizar", onClickFunction: "Update", buttonType: "primary")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

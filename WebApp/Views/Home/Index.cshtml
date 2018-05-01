@@ -1,0 +1,126 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<!-- Styles -->
+@section Styles {
+    <link href="~/Content/Views/index.css" rel="stylesheet">
+}
+<!-- Scripts -->
+@section Scripts {
+
+}
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container">
+            <h1 class="masthead-heading mb-0"><img src="~/img/tubus-login-logo.png" height="100" alt="TuBus" /></h1>
+            <h5 class="masthead-subheading mb-0">Toda la información de tus buses centralizada.</h5>
+            @Html.ActionLink("Iniciar sesión", "vLogin", "Auth", "Auth", new { @class = "btn btn-primary btn-xl rounded-pill mt-5" })
+        </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
+
+<section style="background-color:#f3f3f3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5">
+                    <img class="img-fluid rounded-circle" src="~/img/views/index-map.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5 text-center">
+                    <h2 class="display-4">¿Dónde está TuBus?</h2>
+                    <hr class="title-under-line-top">
+                    <hr class="title-under-line-bottom">
+                    <p>Podrás ver la ubicación de los autobuses en tiempo real.</p>
+                    @Html.ActionLink("Mapa", "vMapa", "Home", new { @class = "btn btn-primary btn-xl rounded-pill mt-5" })
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <img class="img-fluid rounded-circle" src="~/img/views/index-schedule.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-5 text-center">
+                    <h2 class="display-4">¡La hora correcta!</h2>
+                    <hr class="title-under-line-top">
+                    <hr class="title-under-line-bottom">
+                    <p>No importa si solo quieres consultar los horarios, aquí encontrarás toda la información necesaria para planear un viaje perfecto en bus. ¡Compruébalo tu mismo!</p>
+                    @Html.ActionLink("Horarios", "vHorarios", "Home", new { @class = "btn btn-primary btn-xl rounded-pill mt-5" })
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background-color:#f3f3f3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5">
+                    <img class="img-fluid rounded-circle" src="~/img/views/index-parking.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5 text-center">
+                    <h2 class="display-4">¡Evita las presas!</h2>
+                    <hr class="title-under-line-top">
+                    <hr class="title-under-line-bottom">
+                    <p>Utiliza nuestro sistema de parqueos públicos para dejar tu carro y viaja en nuestras líneas de bus para movilizarte en el GAM.</p>
+                    @Html.ActionLink("Estado del parqueo", "vParqueo", "Home", new { @class = "btn btn-primary btn-xl rounded-pill mt-5" })
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <img class="img-fluid rounded-circle" src="~/img/views/index-card.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-5 text-center">
+                    <h2 class="display-4">¡No más efectivo!</h2>
+                    <hr class="title-under-line-top">
+                    <hr class="title-under-line-bottom">
+                    <p>Podrás realizar la recarga de tu tarjeta en línea de una forma fácil. Si todavía no tienes una, solicítala en cualquiera de nuestras terminales.</p>
+                    <p><img src="~/img/views/visa.png" alt="Visa" /><img src="~/img/views/mastercard.png" alt="Mastercard" /><img src="~/img/views/amex.png" alt="Amex" /></p>
+                    @Html.ActionLink("Iniciar sesión", "vLogin", "Auth", "Auth", new { @class = "btn btn-primary btn-xl rounded-pill mt-5" })
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background-color:#f3f3f3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12 order-lg-1">
+                <div class="p-5 text-center">
+                    <h2 class="display-8">
+                       ¡Hecho con <i class="fa fa-heart text-danger" aria-hidden="true"></i> desde Costa Rica!
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

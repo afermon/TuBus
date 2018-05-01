@@ -1,0 +1,24 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Lista Empresas";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Empresa/vListarEmpresa.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vListarEmpresa", id: "listaEmpresa", title: "Empresas",
+                        columnsTitle: "Cedula Jurídica,Nombre de Empresa,Email de Encargado,Telefono,Estado,Acciones", columnsDataName: "CedulaJuridica,NombreEmpresa,EmailEncargado,Telefono,Estado,Acciones", onSelectFunction: "ActionControls")
+    </div>
+</div>

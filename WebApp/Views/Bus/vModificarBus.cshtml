@@ -1,0 +1,43 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Modificar Bus";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    <link rel="stylesheet" href="~/Content/views/index.css">
+}
+<!-- Scripts -->
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/Views/Bus/vModificarBus.js"></script>
+}
+
+<div class="col-md-6">
+    <div class="card mb-3">
+        <div class="card-header"><i class="fa fa-wpforms"></i> Modificar Bus</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form id="frmEdition">
+                        @Html.CtrlInput(id: "txtPlaca", type: "text", label: "Placa", columnDataName: "Id", placeHolder: "Digite la placa")
+                        @Html.CtrlInput(id: "txtEmpresa", type: "text", label: "Empresa", columnDataName: "Empresa", placeHolder: "Digite la empresa")
+                        @Html.CtrlInput(id: "txtCapacidadSentado", type: "number", label: "Capacidad de pasajeros sentados", columnDataName: "CapacidadSentado", placeHolder: "Digite la capacidad")
+                        @Html.CtrlInput(id: "txtCapacidadDePie", type: "number", label: "Capacidad de pasajeros de pie", columnDataName: "CapacidadDePie", placeHolder: "Digite la capacidad")
+                        @Html.CtrlInput(id: "txtCapacidadDiscapacitados", type: "number", label: "Capacidad de pasajeros discapacitados", columnDataName: "AsientoDiscapacitado", placeHolder: "Digite la capacidad")
+
+                        @Html.CtrlCheckBox(id: "chbSeguro", label: "Seguro", columnDataName: "Seguro")
+                        @Html.CtrlCheckBox(id: "chbMarchamo", label: "Marchamo", columnDataName: "Marchamo")
+                        @Html.CtrlCheckBox(id: "chbRtv", label: "RTV", columnDataName: "RTV")
+
+                        @Html.CtrlButton(viewName: "vModificarBus", id: "btnModificarBus", label: "Modificar", onClickFunction: "Modificar", buttonType: "btn btn-primary btn-block")
+                    </form>
+                    <br>
+                    <label id="error"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

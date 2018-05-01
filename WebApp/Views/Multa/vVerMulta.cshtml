@@ -1,0 +1,38 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Ver multa";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Multa/vVerMulta.js"></script>
+}
+
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-wpforms"></i> Detalle de la multa</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtEmpresa", type: "text", label: "Empresa", columnDataName: "Empresa", onlyread: true)
+                                @Html.CtrlInput(id: "nMonto", type: "number", label: "Monto de la multa (CRC)", columnDataName: "Monto", onlyread: true)
+                                @Html.CtrlInput(id: "dFecha", type: "text", label: "Fecha de la multa", columnDataName: "Fecha", onlyread: true)
+                                @Html.CtrlInput(id: "txtDetalle", type: "text", label: "Motivo de la multa", columnDataName: "Detalle", onlyread: true)
+                                @Html.CtrlInput(id: "txtEstado", type: "text", label: "Estado de la multa", columnDataName: "Estado", onlyread: true)
+                            </form>
+                            <br>
+                            <label id="error"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

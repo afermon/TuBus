@@ -1,0 +1,41 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Ver Sanción";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/Sancion/vVerSancion.js"></script>
+}
+
+<!-- Page Content -->
+<div class="col-md-6">
+    <div class="card mb-3">
+        <div class="card-header"><i class="fa fa-wpforms"></i>Detalles de Sanción</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form id="frmEdition">
+                        @Html.CtrlInput(id: "txtSancion", type: "text", label: "Detalle de la sanción", columnDataName: "Descripcion", placeHolder: "**No existe detalle registrado", onlyread: true)
+                        @Html.CtrlInput(id: "nMulta", type: "number", label: "Monto de la multa", columnDataName: "Multa", onlyread: true)
+                        @Html.CtrlDatetimePicker(id: "datetimepick", format: "YYYY-MM-DDTHH:mm:ss", label: "Fecha", columnDataName: "Fecha", onlyread: true)
+                        @Html.CtrlInput(id: "txtSuspencion", type: "text", label: "Suspención", columnDataName: "Suspencion", placeHolder: "**No hay suspención activa", onlyread: true)
+                        @Html.CtrlDatetimePicker(id: "datetimepick2", format: "YYYY-MM-DDTHH:mm:ss", label: "Fecha de Reactivación", columnDataName: "FechaReactivacion", onlyread: true)
+                        @Html.CtrlInput(id: "txtEmpresa", type: "text", label: "Empresa", columnDataName: "Empresa", placeHolder: "Digite el nombre de la empresa", onlyread: true)
+            
+                    </form>
+                    <br>
+                    <label id="error"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

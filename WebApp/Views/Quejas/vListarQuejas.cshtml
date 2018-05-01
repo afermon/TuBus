@@ -1,0 +1,26 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "vListarQuejas";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Queja/vListarQuejas.js"></script>
+}
+
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vListarQuejas", id: "listaQuejas", title: "Lista Quejas",
+                                          columnsTitle: "Id,Ruta Id,Hora,Acciones", columnsDataName: "Id,Ruta,Hora,Acciones", onSelectFunction: "ActionControls")
+    </div>
+</div>
+

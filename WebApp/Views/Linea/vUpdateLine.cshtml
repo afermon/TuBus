@@ -1,0 +1,36 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Linea";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+}
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/Linea/vUpdateLine.js"></script>
+}
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-exchange"></i>Actualizar línea</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="frmLinea">
+                            @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre de la línea:", columnDataName: "NombreLinea")
+                            @Html.CtrlComboBox(id: "Terminales", label: "Seleccione una terminal")
+                            @Html.CtrlInput(id: "txtEspacio", type: "number", label: "Espacios a alquilar:", columnDataName: "EspaciosParqueo")
+                            @Html.CtrlComboBox(id: "Empresas", label: "Seleccione una empresa")
+                            @Html.CtrlButton(viewName: "vUpdateLinea", id: "btnCreate", label: "Actualizar", onClickFunction: "Update", buttonType: "success")
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Tipo de Tarjeta";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+}
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/TipoTarjeta/vUpdateTipoTarjeta.js"></script>
+}
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-id-card"></i> Actualizar tipo de tarjeta</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="frmTipoTarjeta">
+                            @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre de tipo tarjeta:", columnDataName: "Nombre")
+                            @Html.CtrlInput(id: "txtDescuento", type: "number", label: "Descuento que este tipo de tarjeta posee (Porcentaje):", columnDataName: "DiscountPercentage")
+                            @Html.CtrlButton(viewName: "vUpdateTipoTarjeta", id: "btnCreate", label: "Actualizar", onClickFunction: "Update", buttonType: "success")
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

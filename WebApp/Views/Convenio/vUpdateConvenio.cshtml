@@ -1,0 +1,37 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Convenio";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+}
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/Convenio/vUpdateConvenio.js"></script>
+}
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-handshake-o"></i> Crear convenio</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="frmConvenio">
+                            @Html.CtrlInput(id: "txtCedula", type: "number", label: "Cédula jurídica de la Institución:", columnDataName: "CedulaJuridica")
+                            @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre de la institución:", columnDataName: "NombreInstitucion")
+                            @Html.CtrlInput(id: "txtEmail", type: "text", label: "Correo del responsable:", columnDataName: "Email")
+                            @Html.CtrlComboBox(id: "Terminales", label: "Presione las terminales que desea asignar", columnDataName: "Terminales", onlyread: false, classAttribute: "selectpicker", multiple: true)
+                            @Html.CtrlInput(id: "txtDescuentoTarifa", type: "number", label: "Descuento (Porcentaje):", columnDataName: "DescuentoTarifa")
+                            @Html.CtrlButton(viewName: "vUpdateConvenio", id: "btnCreate", label: "Actualizar", onClickFunction: "Update", buttonType: "success")
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

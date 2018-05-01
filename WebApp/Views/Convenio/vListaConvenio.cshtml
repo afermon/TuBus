@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Convenios";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Convenio/vListaConvenio.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vListaConvenio", id: "listaConvenios", title: "Convenios",
+            columnsTitle: "Nombre Institución, Descuento Tarifa,Correo encargado,Acciones", columnsDataName: "NombreInstitucion,DescuentoTarifa,EmailEncargado,Acciones", onSelectFunction: "ActionControls")
+    </div>
+</div>

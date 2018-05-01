@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Tarjeta/vTarjetasGeneral.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vTarjetasGeneral", id: "listaTarjetas", title: "Tarjetas",
+                 columnsTitle: "Tarjeta ,Saldo,Terminal,Tipo de Tarjeta", columnsDataName: "Usuario.Identificacion,SaldoDisponible,Terminal.TerminalName,TipoTarjeta.Nombre", onSelectFunction: "ActionControls")
+    </div>
+</div>

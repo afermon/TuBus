@@ -1,0 +1,35 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Configuración general";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+}
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/Configuracion/vGeneral.js"></script>
+}
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-cogs"></i> Configuración general</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="frmConfiguracionGeneral">
+                            @Html.CtrlInput(id: "txtDiasExpiracionContrasena", type: "number", label: "Expiración de la contraseña (días):", columnDataName: "DiasExpiracionContrasena")
+                            @Html.CtrlInput(id: "txtCantCaracteresContrasena", type: "number", label: "Cantidad de caracteres de la contraseña:", columnDataName: "CantCaracteresContrasena")
+                            @Html.CtrlInput(id: "txtCantContrasenasAnteriores", type: "number", label: "Cantidad de contraseñas anteriores no permitidas:", columnDataName: "CantContrasenasAnteriores")
+                            @Html.CtrlButton(viewName: "vGeneral", id: "btnUpdate", label: "Actualizar", onClickFunction: "Update", buttonType: "success")
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

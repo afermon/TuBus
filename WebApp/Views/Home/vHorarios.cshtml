@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "Horarios de buses";
+}
+
+<!-- Styles -->
+@section Styles {
+    <link href="~/Content/Views/index.css" rel="stylesheet">
+}
+<!-- Scripts -->
+@section Scripts {
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/Views/Home/vHorario.js"></script>
+}
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <img class="img-fluid rounded-circle" src="~/img/views/index-schedule.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-5 text-center">
+                    <h2 class="display-5">¡La hora correcta!</h2>
+                    <hr class="title-under-line-top">
+                    <hr class="title-under-line-bottom">
+                    <p>No importa si solo quieres consultar los horarios, aquí encontrarás toda la información necesaria para planear un viaje perfecto en bus. ¡Compruébalo tu mismo!</p>
+                    <div class="row text-left">
+                        <div class="col-md-6">
+                            @Html.CtrlComboBox(id: "cbTerminal", label: "Terminal:", columnDataName: "TerminalId")
+                        </div>
+                        <div class="col-md-6">
+                            @Html.CtrlComboBox(id: "cbRuta", label: "Ruta:", columnDataName: "RutaId")
+                        </div>
+                    </div>
+                    <div class="alert alert-light d-none" id="nextBusDiv">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="costo" class="font-weight-bold">Costo (CRC):</label>
+                                <h1 type="text" class="text-center text-success" id="costo">CRC</h1>
+                                <h6 type="text" class="text-center text-primary" id="costoKm">-</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="nextBus" class="font-weight-bold">Proxima salida</label>
+                                <h1 type="text" class="text-center text-success" id="nextBus">Mañana</h1>
+                                <h6 type="text" class="text-center text-primary" id="nextBusHour">-</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table text-center table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Lunes</th>
+                            <th scope="col">Martes</th>
+                            <th scope="col">Miércoles</th>
+                            <th scope="col">Jueves</th>
+                            <th scope="col">Viernes</th>
+                            <th scope="col">Sábado</th>
+                            <th scope="col">Domingo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <ul class="list-group list-group-flush" id="dia-1">
+                                    <li class="list-group-item text-danger">Sin servicio</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-group list-group-flush" id="dia-2">
+                                    <li class="list-group-item text-danger">Sin servicio</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-group list-group-flush" id="dia-3">
+                                    <li class="list-group-item text-danger">Sin servicio</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-group list-group-flush" id="dia-4">
+                                    <li class="list-group-item text-danger">Sin servicio</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-group list-group-flush" id="dia-5">
+                                    <li class="list-group-item text-danger">Sin servicio</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-group list-group-flush" id="dia-6">
+                                    <li class="list-group-item text-danger">Sin servicio</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-group list-group-flush" id="dia-7">
+                                    <li class="list-group-item text-danger">Sin servicio</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

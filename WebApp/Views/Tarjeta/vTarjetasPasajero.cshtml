@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Tarjetas Pasajero";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Tarjeta/vTarjetasPasajero.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vTarjetasGeneral", id: "listaTarjetas", title: "Tarjetas",
+            columnsTitle: "Tarjeta, Saldo,Terminal, Tipo de Tarjeta", columnsDataName: "NombreTarjeta,SaldoDisponible,Terminal.TerminalName,TipoTarjeta.Nombre", onSelectFunction: "ActionControls")
+    </div>
+    <div style="margin-left: 80%">
+        @Html.CtrlButton(viewName: "vReposicion", id: "reposicion", label: "Solitar reposición", onClickFunction: "Reposicion", buttonType: "success")
+    </div>
+</div>
+
+<div class="modal hide fade" id="RepoModal" tabindex="-2" role="dialog" aria-labelledby="AlertModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="AlertModalLabel">@ViewBag.Title</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.CtrlComboBox(id: "tarjetas", label: "Seleccione una tarjeta")
+                @Html.CtrlComboBox(id: "estados", label: "Seleccione el estado")
+            </div>
+            <div class="modal-footer">
+                <button id="" class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <button id="Repoacept" class="btn btn-secondary" type="button" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section FinalScripts
+{
+    <script src="~/Scripts/Views/Tarjeta/vSolicitarReposicion.js"></script>
+}

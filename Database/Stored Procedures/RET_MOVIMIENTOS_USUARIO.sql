@@ -1,0 +1,10 @@
+﻿CREATE PROCEDURE [dbo].[RET_MOVIMIENTOS_USUARIO]
+	@P_EMAIL nvarchar(50)
+AS
+	Select SUM(MONTO) as CANTIDAD, TIPO as NOMBRE, CONVERT(char(10), tr.Fecha,126) as FECHA
+	from TBL_TRANSACCION as tr
+	where TARJETA_ID in ( SELECT [CODIGO_UNICO]     
+						  FROM [TBL_TARJETA]
+						  where [USUARIO] = @P_EMAIL)
+	group by TIPO, FECHA
+RETURN 0

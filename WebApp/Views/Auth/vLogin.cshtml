@@ -1,0 +1,40 @@
+﻿@using WebApp.Helpers;
+@model WebApp.Models.Controls.MessageViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+
+}
+<!-- Scripts -->
+@section Scripts {
+    <script src="~/Scripts/Views/Auth/vLogin.js"></script>
+}
+<div class="container">
+    <div class="card card-login mx-auto mt-5">
+        <div class="card-header"><img src="~/img/tubus-login-logo.png" alt="TuBus" class="img-fluid" /></div>
+        <div class="card-body">
+            <form id="frmLogin">
+                @Html.CtrlInput("txtEmail", "email", "Correo electrónico:", "Ingrese su correo", "Username")
+                @Html.CtrlInput("txtPassword", "password", "Contraseña:", "Contraseña", "Password")
+            </form>
+            @Html.CtrlButton(viewName: "vLogin", id: "btnLogin", label: "Iniciar sesión", onClickFunction: "Login", buttonType: "primary btn-block")
+            <div class="text-center mt-2">
+                @Html.ActionLink("¿Olvido su contraseña?", "vForgotPassword", "vForgotPassword", new { @class = "d-block small" })
+            </div>
+            <div class="text-center mt-2">
+                <small>Copyright © Eagle Coding 2018</small>
+            </div>
+        </div>
+        @if (Model != null && Model.ShowMeesage)
+        {
+            <div class="alert @Model.Style  alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>@Model.Message</strong> @Model.DescirptionMessage
+            </div>
+        }
+    </div>
+</div>

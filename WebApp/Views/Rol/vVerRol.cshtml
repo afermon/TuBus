@@ -1,0 +1,34 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Ver Rol";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    <link rel="stylesheet" href="~/Content/views/index.css">
+}
+<!-- Scripts -->
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/Views/Rol/vVerRol.js"></script>
+}
+
+<div class="col-md-6">
+    <div class="card mb-3">
+        <div class="card-header"><i class="fa fa-wpforms"></i> Ver Rol</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form id="frmEdition">
+                        @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "RoleId", placeHolder: "Digite el nombre del rol")
+                        @Html.CtrlInput(id: "txtHomePage", type: "text", label: "Página de inicio", columnDataName: "HomePage", placeHolder: "Digite la página de inicio")
+                        @Html.CtrlInput(id: "txtDescripcion", type: "text", label: "Descripción", columnDataName: "Descripcion", placeHolder: "Digite la descripción")
+                        @Html.CtrlComboBox(id: "Vistas", label: "Vistas asignadas", columnDataName: "Vistas", onlyread: true, classAttribute: "selectpicker", multiple: true)
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

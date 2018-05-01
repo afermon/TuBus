@@ -1,0 +1,9 @@
+﻿CREATE PROCEDURE [dbo].[RET_RUTA_EMPRESA_PR]
+	@P_RUTA_ID INT
+AS
+	SELECT te.* FROM TBL_EMPRESA as te
+	inner join TBL_LINEA tl on tl.EMPRESA_ID = te.CEDULA_JURIDICA
+	inner join TBL_RUTA tr on tr.LINEA_ID = tl.LINEA_ID
+	where tr.RUTA_ID = @P_RUTA_ID
+
+RETURN 0

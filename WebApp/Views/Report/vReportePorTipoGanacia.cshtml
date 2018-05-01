@@ -1,0 +1,22 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Reporte";
+}
+
+<!-- Styles -->
+@section Styles {
+
+}
+<!-- Scripts -->
+@section Scripts {
+    <script src="~/Scripts/Views/Report/vReportePorTipoGanacia.js"></script>
+}
+<!-- Page Content -->
+<div class="row">
+    <div class="col-12">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe id="iframe-reporte" class="embed-responsive-item" src="/Report/Loading"></iframe>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Dashboard Admin Terminal";
+}
+
+<!-- Styles -->
+@section Styles {
+
+}
+<!-- Scripts -->
+@section Scripts {
+
+}
+<!-- Page Content -->
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="~/img/landing-pic.png" class="img-fluid" />
+            </div>
+            <div class="col-md-8 text-center">
+                <h1 class="text-success"><br>¡Bienvenido <span id="userName"></span>!</h1>
+                <p><b></b> </p>
+                <p>En caso de algún fallo con la aplicación porfavor contactenos a: <br><a href="mailto:cs@tubus.com">cs@tubus.com</a></p>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-area-chart"></i> Ganancias de la terminal
+            </div>
+            <div class="card-body">
+                <canvas id="myAreaChart" width="100%" height="30"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section FinalScripts {
+    <script src="../../Scripts/Chart.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../Scripts/adminlte.min.js"></script>
+    <!-- Payment Custom JS -->
+    <script src="../../Scripts/Views/Dashboard/vTerminal.js"></script>
+}

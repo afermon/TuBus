@@ -1,0 +1,39 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "vVerQueja";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/Queja/vVerQueja.js"></script>
+}
+
+<!-- Page Content -->
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-wpforms"></i> Registar Queja</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="frmEdition">
+                            @Html.CtrlInput(id: "txtQueja", type: "text", label: "Detalle de la queja", columnDataName: "DetalleQueja", onlyread: true)
+                            @Html.CtrlComboBox(id: "cbRutas", label: "Ruta ", columnDataName: "Ruta", onlyread: true)
+                            <div id="comboChofer" class="d-none">
+                                @Html.CtrlComboBox(id: "cbChofer", label: "Nombre del chofer", columnDataName: "Chofer", onlyread: true)
+                            </div>
+                            @Html.CtrlInput(id: "txtPlaca", type: "text", label: "Numero de placa (opcional)", columnDataName: "Placa", placeHolder: "Placa no indicada")
+                            @Html.CtrlDatetimePicker(id: "datetimepick", format: "YYYY-MM-DDTHH:mm:ss", label: "Fecha Hora", columnDataName: "Hora")
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

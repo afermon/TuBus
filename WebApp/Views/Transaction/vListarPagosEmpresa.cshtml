@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Pagos Empresa";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Transacciones/vListarPagosEmpresa.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vListaTransacciones", id: "listaTransacciones", title: "Lista de Pagos",
+            columnsTitle: "Linea,Descripción,Monto, Estado de pago,Fecha,Acciones", columnsDataName: "Linea.NombreLinea,Descripcion,Monto,EstadoPago,Fecha,Acciones", onSelectFunction: "ActionControls")
+    </div>
+</div>

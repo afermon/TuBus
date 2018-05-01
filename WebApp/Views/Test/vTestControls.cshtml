@@ -1,0 +1,49 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Test Controls";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+    @Styles.Render("~/Content/form")
+}
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/vTestControls.js"></script>
+}
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vTestControls", id: "listaestado", title: "Lista Estados",
+                      columnsTitle: "ListId,Value,Description", columnsDataName: "ListId,Value,Description", onSelectFunction: "BindFields")
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-wpforms"></i> Customer Edition</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtListId", type: "text", label: "Lista Id", columnDataName: "ListId")
+                                @Html.CtrlInput(id: "txtValue", type: "text", label: "Value", columnDataName: "Value")
+                                @Html.CtrlInput(id: "txtDescription", type: "text", label: "Description", columnDataName: "Description")
+                                @Html.CtrlComboBox(id: "cbestado", label: "Estado Test CB")
+                                @Html.CtrlDatetimePicker(id: "datetimepick", format: "L LT", label: "Datetime", columnDataName: "Datetime")
+                                @Html.CtrlDatetimePicker(id: "datepick", format: "L", label: "Date", columnDataName: "Date")
+                                @Html.CtrlDatetimePicker(id: "timepick", format: "LT", label: "Time", columnDataName: "Time")
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

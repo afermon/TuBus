@@ -1,0 +1,38 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Lista de Tarifas ARESEP";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Tarifa/vLista.js"></script>
+}
+
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vLista", id: "listatarifas", title: "Tarifas ARESEP",
+                columnsTitle: "ID,Nombre,Operador,Costo", columnsDataName: "RouteId,RouteName,Operator,RegularFare", onSelectFunction: "ActionControls")
+    </div>
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-fw fa-refresh"></i> Actualizar Tarifas</div>
+            <div class="card-body">
+                <p>Actualizar las tarifas locales de acuerdo a la información de la Autoridad Reguladora de Servicios Públicos de Costa Rica (ARESEP).  Mas información puede ser encontrada en <a href="https://aresep.go.cr/autobus/tarifas">ARESEP</a></p>
+                <p>El proceso puede tardar varios minutos.</p>
+                <div class="progress d-none">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                </div>
+            </div>
+            <div class="card-footer">@Html.CtrlButton(viewName: "vLista", id: "btnActualizar", label: "Actualizar", onClickFunction: "UpdateTarifas", buttonType: "primary")</div>
+        </div>
+    </div>
+</div>

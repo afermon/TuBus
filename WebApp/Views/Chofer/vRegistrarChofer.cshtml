@@ -1,0 +1,47 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Registro de Chofer";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/Chofer/vRegistrarChofer.js"></script>
+}
+
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-wpforms"></i> Registro de chofer</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtCedula", type: "number", label: "Cédula", placeHolder: "Digite el número de cédula", columnDataName: "Cedula")
+                                @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", placeHolder: "Digite el nombre", columnDataName: "Nombre")
+                                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Apellidos", placeHolder: "Digite los apellidos", columnDataName: "Apellidos")
+                                @Html.CtrlInput(id: "txtTelefono", type: "number", label: "Teléfono", placeHolder: "Digite el teléfono", columnDataName: "Telefono")
+                                @Html.CtrlInput(id: "txtCorreo", type: "email", label: "Correo", placeHolder: "tucorreo@correo.com", columnDataName: "Correo")
+                                @Html.CtrlDatetimePicker(id: "dFechaNacimiento", format: "YYYY-MM-DD", label: "Fecha de Nacimiento", columnDataName: "FechaNacimiento")
+                                @Html.CtrlInput(id: "txtEdad", type: "number", label: "Edad", placeHolder: "años", columnDataName: "Edad", onlyread: true)
+                                @Html.CtrlInput(id: "txtLicencia", type: "text", label: "Número de Licencia", placeHolder: "Digite el número de licencia", columnDataName: "NumeroLicencia")
+                                @Html.CtrlDatetimePicker(id: "datetimepick2", format: "YYYY-MM-DD", label: "Fecha de expiración", columnDataName: "FechaExpiracion")
+                                @Html.CtrlComboBox(id: "cbEmpresa", label: "Empresa ", columnDataName: "Empresa")
+                                @Html.CtrlButton(viewName: "vRegistrarChofer", id: "btnRegistrarC", label: "Registrar", onClickFunction: "Create", buttonType: "primary btn-block")
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

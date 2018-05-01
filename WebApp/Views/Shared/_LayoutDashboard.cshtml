@@ -1,0 +1,120 @@
+﻿@using WebApp.Helpers;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="TuBus">
+    <meta name="author" content="Eagle Coding">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="~/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="~/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="~/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="~/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="~/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>@ViewBag.Title - TuBus</title>
+
+    <!-- Styles -->
+    @Styles.Render("~/Content/css")
+    @RenderSection("Styles", required: false)
+
+    <!-- JavaScripts -->
+    @Scripts.Render("~/Scripts/js")
+    @RenderSection("Scripts", required: false)
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <!-- Navigation-->
+    @Html.Partial("~/Views/Shared/Partials/_Navigation.cshtml")
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs -->
+            @Html.CtrlBreadcrum("breadcrum-top")
+
+            <!-- Alerts -->
+            <div class="alert alert-success alert-dismissable" style="display: none" id="alert_container">
+                <button type="button" class="close" onclick="$('.alert').hide()">&times;</button>
+                <span id="alert_message"></span>
+            </div>
+            <!-- Page content -->
+            @RenderBody()
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="sticky-footer">
+            <div class="container">
+                <div class="text-center">
+                    <small>Copyright © Eagle Coding 2018 - Hecho con <i class="fa fa-heart text-danger" aria-hidden="true"></i> desde Costa Rica. </small>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll to Top Button -->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Logout Modal -->
+        <div class="modal fade" id="LogoutModal" tabindex="-1" role="dialog" aria-labelledby="LogoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="LogoutModalLabel">Cerrar sesión</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">¿Desea cerrar sesión?</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                        @Html.CtrlButton(viewName: "Auth", id: "btnLogout", label: "Salir", onClickFunction: "Logout", buttonType: "primary")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Alert Modal -->
+        <div class="modal hide fade" id="AlertModal" tabindex="-2" role="dialog" aria-labelledby="AlertModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="AlertModalLabel">@ViewBag.Title</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Houston, we have a problem!</div>
+                    <div class="modal-footer">
+                        <button id="acept" class="btn btn-secondary" type="button" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal hide fade" id="ConfirmModal" tabindex="-2" role="dialog" aria-labelledby="AlertModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="AlertModalLabel">@ViewBag.Title</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Houston, we have a problem!</div>
+                    <div class="modal-footer formDelete">
+                        <button id="confirm" class="btn btn-secondary" type="button" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScripts -->
+    @Scripts.Render("~/Scripts/js-body")
+    @RenderSection("FinalScripts", required: false)
+
+</body>
+</html>

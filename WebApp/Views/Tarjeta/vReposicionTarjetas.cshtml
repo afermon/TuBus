@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Tarjetas";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Tarjeta/vReposicionTarjetas.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vListaTarjetas", id: "listaTarjetas", title: "Tarjetas",
+            columnsTitle: "Usuario,Saldo,Terminal,Tipo de Tarjeta, Condición, Acciones", columnsDataName: "Usuario.Identificacion,SaldoDisponible,Terminal.TerminalName,TipoTarjeta.Nombre,EstadoTarjeta.NombreEstado,Acciones", onSelectFunction: "ActionControls")
+    </div>
+</div>

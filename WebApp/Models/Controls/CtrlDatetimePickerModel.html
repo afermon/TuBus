@@ -1,0 +1,19 @@
+﻿<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker--#Id-').datetimepicker({
+            locale: 'es',
+            format: '-#Format-',
+            defaultDate: moment()
+        });
+    });
+</script>
+
+<div class="form-group">
+    <label for="-#Id-">-#Label-</label>
+    <div class="input-group date" id="datetimepicker--#Id-" data-target-input="nearest">
+        <div class="input-group-prepend" data-target="#datetimepicker--#Id-" data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+        </div>
+        <input type="text" id="-#Id-" class="form-control datetimepicker-input" data-target="#datetimepicker--#Id-" ColumnDataName="-#ColumnDataName-" name="-#ColumnDataName-" -#Readyonly-/>
+    </div>
+</div>

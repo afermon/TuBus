@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Tipos de tarjetas";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/TipoTarjeta/vListaTipoTarjeta.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vListaTipoTarjeta", id: "listaTiposTarjetas", title: "Tipos de tarjetas",
+                 columnsTitle: "Id, Nombre, Descuento Tarifa, Acciones", columnsDataName: "TipoTarjetaId,Nombre,DiscountPercentage,Acciones", onSelectFunction: "ActionControls")
+    </div>
+</div>

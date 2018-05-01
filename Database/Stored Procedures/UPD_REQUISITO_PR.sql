@@ -1,0 +1,13 @@
+﻿CREATE PROCEDURE [dbo].[UPD_REQUISITO_PR]
+	@P_PERMISO nvarchar(50),
+	@P_PLACA nvarchar(50),
+	@P_ESTADO nvarchar(50)
+AS
+	Begin
+		SET NOCOUNT ON;  
+		UPDATE  TBL_REQUESITO
+		SET
+            ESTADO = @P_ESTADO
+			WHERE PLACA = @P_PLACA AND PERMISO = @P_PERMISO
+	END
+GO

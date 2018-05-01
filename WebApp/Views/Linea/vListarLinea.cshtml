@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Lineas";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Linea/vListarLinea.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vListarLinea", id: "listaLineas", title: "Lineas",
+            columnsTitle: "Id, Nombre Linea,Espacios alquilados en el parqueo,Nombre terminal, Empresa,Acciones", columnsDataName: "LineaId,NombreLinea,EspaciosParqueo,Terminal.TerminalName,Empresa.NombreEmpresa,Acciones", onSelectFunction: "ActionControls")
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Transacciones Pasajero";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Transacciones/vTransaccionesPasajero.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vTransaccionesGeneral", id: "listaTransacciones", title: "Bitácora de transacciones",
+                 columnsTitle: "Usuario, Monto, Tipo de transaccion, Concepto, Beneficiario,Fecha", columnsDataName: "Usuario.Email,Charge,Type,Description,Terminal.TerminalName,Fecha", onSelectFunction: "ActionControls")
+    </div>
+</div>
+

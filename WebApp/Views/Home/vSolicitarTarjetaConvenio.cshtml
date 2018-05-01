@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Solicitar tarjetas convenio";
+}
+
+<!-- Styles -->
+@section Styles {
+    <link href="~/Content/Views/jquery.tag-editor.css" rel="stylesheet">
+}
+<!-- Scripts -->
+@section Scripts {
+
+}
+
+<br />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-handshake-o"></i> Tarjetas de convenio
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="p-5 text-center">
+                            <h2 class="display-5">¡Solicita un convenio!</h2>
+                            <hr class="title-under-line-top">
+                            <hr class="title-under-line-bottom">
+                            <p>Completa el formulario con los datos solicitados y nos pondremos en contacto para que tu convenio forme parte de esta cadena .</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <div class="bs-component">
+                            <form id="frmCreate">
+                                @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre del solicitante:", columnDataName: "UserName", placeHolder: "Digite su nombre")
+                                @Html.CtrlInput(id: "txtEmail", type: "text", label: "Correo electrónico solicitante:", columnDataName: "Email", placeHolder: "Digite el correo electrónico")
+                                @Html.CtrlComboBox(id: "Terminales", label: "Seleccione una terminal")
+                                @Html.CtrlComboBox(id: "Convenios", label: "Seleccione un convenio")
+                                @Html.CtrlTextArea(id: "txtEmails", type: "text", label: "Correos de las tarjetas")
+                                @Html.CtrlButton(viewName: "vSolicitarTarjeta", id: "btnSolicitar", label: "Solicitar tarjetas", onClickFunction: "Create", buttonType: "primary btn-block")
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="mapaParqueo"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section FinalScripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/Views/Home/SolicitarTarjetaConvenio/jquery.caret.min.js"></script>
+    <script src="~/Scripts/Views/Home/SolicitarTarjetaConvenio/jquery.tag-editor.js"></script>
+    <script src="~/Scripts/Views/Home/SolicitarTarjetaConvenio/vSolicitarTarjetaConvenio.js"></script>
+}

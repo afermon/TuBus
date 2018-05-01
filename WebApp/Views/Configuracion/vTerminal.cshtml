@@ -1,0 +1,40 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Configuración de terminal";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+}
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/Configuracion/vTerminal.js"></script>
+}
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-cogs"></i> Configuración de terminal</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="frmConfiguracionTerminal">
+                            @Html.CtrlInput(id: "txtTerminalId", type: "number", label: "Terminal:", columnDataName: "TerminalId", onlyread: true)
+                            @Html.CtrlInput(id: "txtCantidadQuejasSancion", type: "number", label: "Cantidad de quejas que generan una sanción:", columnDataName: "CantidadQuejasSancion")
+                            @Html.CtrlInput(id: "txtCantidadTardiasSancion", type: "number", label: "Cantidad de tardias que generan una sanción:", columnDataName: "CantidadTardiasSancion")
+                            @Html.CtrlInput(id: "txtCantidadMinutosTardia", type: "number", label: "Cantidad de minutos que generan una tardia:", columnDataName: "CantidadMinutosTardia")
+                            @Html.CtrlInput(id: "txtCostoParqueoHora", type: "number", label: "Costo del parqueo por hora (CRC):", columnDataName: "CostoParqueoHora")
+                            @Html.CtrlInput(id: "txtCostoParqueoDia", type: "number", label: "Costo del parqueo por día (CRC):", columnDataName: "CostoParqueoDia")
+                            @Html.CtrlInput(id: "txtMontoInicialTarjeta", type: "number", label: "Monto inicial de las tarjetas (CRC):", columnDataName: "MontoInicialTarjeta")
+                            @Html.CtrlInput(id: "txtCostoParqueoBusMes", type: "number", label: "Costo mensual del parqueo de buses (CRC):", columnDataName: "CostoParqueoBusMes")
+                            @Html.CtrlButton(viewName: "vTerminal", id: "btnUpdate", label: "Actualizar", onClickFunction: "Update", buttonType: "success")
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

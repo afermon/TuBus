@@ -1,0 +1,11 @@
+﻿CREATE PROCEDURE [dbo].[DEL_LINEA_PR]
+	@P_LINEA_ID int
+AS
+	Begin
+		SET NOCOUNT ON;  
+		UPDATE  TBL_LINEA
+		SET
+            ESTADO = 'Inactivo'
+			WHERE LINEA_ID =@P_LINEA_ID
+	END
+GO

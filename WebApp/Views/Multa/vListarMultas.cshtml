@@ -1,0 +1,26 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Lista Multas";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Multa/vListarMultas.js"></script>
+}
+
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vListarMultas", id: "listamulta", title: "Lista Multas",
+                                          columnsTitle: "Id,Empresa,Monto,Fecha,Detalle,Estado,Acciones", columnsDataName: "Id,NombreEmpresa,Monto,Fecha,Detalle,Estado,Acciones", onSelectFunction: "ActionControls")
+    </div>
+</div>
+

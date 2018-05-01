@@ -1,0 +1,46 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Dashboard Pasajero";
+}
+
+<!-- Styles -->
+@section Styles {
+
+}
+<!-- Scripts -->
+@section Scripts {
+
+}
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-4">
+        <img src="~/img/landing-pic.png" class="img-fluid"/>
+    </div>
+    <div class="col-md-8 text-center">
+        <h1 class="text-success"><br>¡Bienvenido <span id="userName"></span>!</h1>
+        <p><b></b> </p>
+        <p>TuBus es una aplicación web que le permite utilizar servicios como parqueo público y transporte público de una terminal mediante una tarjeta. Agradecemos tu preferencia, al utilizar nuestros servicios ayudas a mejorar nuestra plataforma y brindar un mejor servicio.</p>
+        <p>Tu opinión si cuenta, utiliza nuestro sistema de quejas o contactanos en caso de tener cualquier duda: <br><a href="mailto:cs@tubus.com">cs@tubus.com</a></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-area-chart"></i> Movimientos de tarjetas
+            </div>
+            <div class="card-body">
+                <canvas id="myAreaChart" width="100%" height="30"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section FinalScripts {
+    <script src="../../Scripts/Chart.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../Scripts/adminlte.min.js"></script>
+    <!-- Payment Custom JS -->
+    <script src="../../Scripts/Views/Dashboard/vPasajero.js"></script>
+}

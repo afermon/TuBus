@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Registrar Usuario";
+    Layout = "~/Views/Shared/_LayoutNotUserRequired.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+
+}
+<!-- Scripts -->
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/Views/vActivarUsuario.js"></script>
+}
+<body class="fixed-nav sticky-footer-body">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-home">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img src="~/img/tubus-navbar-logo.png" height="25"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "vParqueo" ? "active" : "")">
+                    @Html.ActionLink("Iniciar sesión", "vLogin", "Auth", "Auth", new { @class = "nav-link" })
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div style="margin: 1%;">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header"><i class="fa fa-wpforms"></i> Registrar Usuario</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="bs-component">
+                                <form id="frmCreate">
+                                    @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre:", columnDataName: "UserName", placeHolder: "Digite su nombre")
+                                    @Html.CtrlInput(id: "txtApellido", type: "text", label: "Apellido:", columnDataName: "LastName", placeHolder: "Digite su apellido")
+                                    @Html.CtrlInput(id: "txtEmail", type: "text", label: "Correo electrónico:", columnDataName: "Email", placeHolder: "Digite el correo electrónico")
+                                    @Html.CtrlInput(id: "txtId", type: "text", label: "Identificación:", columnDataName: "Id", placeHolder: "Digite la identificación")
+                                    @Html.CtrlInput(id: "txtPassword", type: "password", label: "Contraseña:", columnDataName: "Password", placeHolder: "Digite la contraseña")
+                                    @Html.CtrlInput(id: "txtVerifiedPaswword", type: "password", label: "Verificar contraseña:", columnDataName: "VerifiedPassword", placeHolder: "Verifique su contraseña")
+                                    @Html.CtrlDatetimePicker(id: "datepick", format: "L", label: "Fecha de nacimiento", columnDataName: "Date")
+                                    @Html.CtrlInput(id: "txtPhone", type: "number", label: "Número de teléfono:", columnDataName: "Phone", placeHolder: "Digite su número de teléfono")
+                                    @Html.CtrlInput(id: "txtSmsNotfication", type: "text", label: "Digite el monto mínimo que debe de terner la tarjeta (si el monto disponible es menor recibirá un SMS):", columnDataName: "SmsNotfication", placeHolder: "Digite el monto minimo de dinero que debe de poseer la tarjeta.")
+                                    @Html.CtrlButton(viewName: "vActivarUsuario", id: "btnCrearUsuario", label: "Registrar", onClickFunction: "Create", buttonType: "primary btn-block")
+                                </form>
+                                <br>
+                                <label id="error"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark sticky-footer-home">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Eagle Coding 2018</p>
+    </div>
+</footer>
+

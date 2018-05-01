@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfApplicationMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ApplicationMessage>
+    <Id>1</Id>
+    <Message>Se ha producido un problema, por favor contacte al administrador.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>2</Id>
+    <Message>Not implemented...</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>100</Id>
+    <Message>El nombre de la terminal ya se encuentra registrado</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>101</Id>
+    <Message>El chofer ya se encuentra registrado</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>102</Id>
+    <Message>La terminal indicada no existe</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>103</Id>
+    <Message>El chofer indicado no existe</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>200</Id>
+    <Message>La lista indicada no existe.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>201</Id>
+    <Message>La configuración indicada no existe.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>202</Id>
+    <Message>Ya existe una configuración para la terminal indicada.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>203</Id>
+    <Message>La configuración de terminal indicada no existe.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>204</Id>
+    <Message>El usuario indicado no existe.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>205</Id>
+    <Message>La contraseña no puede ser igual a alguna de las 6 anteriores.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>206</Id>
+    <Message>La contraseña debe tener al menos 6 caracteres.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>207</Id>
+    <Message>El usuario indicado ya existe.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>208</Id>
+    <Message>Usuario o contraseña incorrectos.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>209</Id>
+    <Message>Contraseña expirada, por favor restablezca su contraseña.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>210</Id>
+    <Message>El link de acceso ya expiro, inténtelo nuevamente.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>211</Id>
+    <Message>El usuario se encuentra inactivo.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>212</Id>
+    <Message>La tarifa indicada no existe.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>213</Id>
+    <Message>La ruta indicada no existe.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>214</Id>
+    <Message>La ruta indicada y existe.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>215</Id>
+    <Message>Error al crear la ruta.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>216</Id>
+    <Message>No existe empresa activa para el usuario seleccionado.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>217</Id>
+    <Message>Recorrido indicado no existe.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>218</Id>
+    <Message>Recorrido indicado no ha salido.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>219</Id>
+    <Message>Error al crear el recorrido</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>220</Id>
+    <Message>El recorrido ya salio.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>221</Id>
+    <Message>No existe la ruta o esta inactiva.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>222</Id>
+    <Message>No existe el bus o esta inactivo.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>223</Id>
+    <Message>No existe el chofer o esta inactivo.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>224</Id>
+    <Message>El bus esta lleno.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>225</Id>
+    <Message>No existe la linea o esta inactiva.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>226</Id>
+    <Message>No existe el horario indicado.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>300</Id>
+    <Message>Ya existe esa tarjeta. (Id repetido)</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>301</Id>
+    <Message>La tarjeta no existe en el sistema</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>302</Id>
+    <Message>Se requiere un tipo de transaccion</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>303</Id>
+    <Message>El convenio ya existe</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>304</Id>
+    <Message>Esta tarjeta no posee suficiente saldo</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>305</Id>
+    <Message>La linea ya existe en el sistema</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>306</Id>
+    <Message>La linea no existe en el sistema</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>307</Id>
+    <Message>No hay suficiente espacio disponible para alquilar</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>308</Id>
+    <Message>No existe la solicitud</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>309</Id>
+    <Message>La solicitud de tarjetas ya fue aprobada</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>310</Id>
+    <Message>Esta solicitud ya fue aprobada por el representante del convenio</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>311</Id>
+    <Message>Esta solicitud ya fue aprobada por el administrador</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>312</Id>
+    <Message>No existe el convenio</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>400</Id>
+    <Message>El rol ya se encuentra registrado.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>401</Id>
+    <Message>El parqueo no tiene espacios disponibles.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>402</Id>
+    <Message>Esta tarjeta no tiene carros dentro del parqueo.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>403</Id>
+    <Message>El rol no puede tener vistas duplicadas.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>404</Id>
+    <Message>El bus ya está registrado en el sistema.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>405</Id>
+    <Message>La empresa ya está registrada en el sistema.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>406</Id>
+    <Message>Esta tarjeta ya accesó al parqueo público.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>407</Id>
+    <Message>Esta tarjeta no es válida.</Message>
+  </ApplicationMessage>
+  <ApplicationMessage>
+    <Id>408</Id>
+    <Message>Esta tarjeta no pertenece a la terminal.</Message>
+  </ApplicationMessage>
+</ArrayOfApplicationMessage>

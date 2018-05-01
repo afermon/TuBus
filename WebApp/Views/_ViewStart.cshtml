@@ -1,0 +1,4 @@
+﻿@{
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+    Layout = controller.ToUpper() == "HOME" ? "~/Views/Shared/_LayoutHome.cshtml" : "~/Views/Shared/_LayoutDashboard.cshtml";
+}

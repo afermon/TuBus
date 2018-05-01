@@ -1,0 +1,49 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Modificar Chofer";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/Chofer/vModificarChofer.js"></script>
+}
+
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-wpforms"></i> Modificar chofer</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtCedula", type: "number", label: "Cédula", columnDataName: "Cedula", onlyread: true)
+                                @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre", columnDataName: "Nombre")
+                                @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Apellidos", columnDataName: "Apellidos")
+                                @Html.CtrlInput(id: "txtTelefono", type: "number", label: "Teléfono", columnDataName: "Telefono")
+                                @Html.CtrlInput(id: "txtCorreo", type: "email", label: "Correo", columnDataName: "Correo")
+                                @Html.CtrlDatetimePicker(id: "dFechaNacimiento", format: "YYYY-MM-DD", label: "Fecha de Nacimiento", columnDataName: "FechaNacimiento")
+                                @Html.CtrlInput(id: "txtEdad", type: "number", label: "Edad", columnDataName: "Edad", onlyread: true)
+                                @Html.CtrlInput(id: "txtLicencia", type: "text", label: "Número de Licencia", columnDataName: "NumeroLicencia")
+                                @Html.CtrlDatetimePicker(id: "datetimepick2", format: "YYYY-MM-DD", label: "Fecha de expiración", columnDataName: "FechaExpiracion")
+                                @Html.CtrlComboBox(id: "cbEmpresa", label: "Empresa ", columnDataName: "Empresa")
+                                @Html.CtrlButton(viewName: "vModificarChofer", id: "btnActualizar", label: "Actualizar", onClickFunction: "Update", buttonType: "primary btn-block")
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

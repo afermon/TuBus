@@ -1,0 +1,69 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Perfil de usuario";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+}
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/Usuario/vPerfil.js"></script>
+}
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-user"></i> Perfil</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="frmPerfilUsuario">
+                            @Html.CtrlInput(id: "txtEmail", type: "text", label: "Email:", columnDataName: "Email", onlyread: true)
+                            @Html.CtrlInput(id: "txtIdentificacion", type: "text", label: "Identificación:", columnDataName: "Identificacion")
+                            @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre:", columnDataName: "Nombre")
+                            @Html.CtrlInput(id: "txtApellidos", type: "text", label: "Apellidos:", columnDataName: "Apellidos")
+                            <div class="row">
+                                <div class="col-md-8">@Html.CtrlDatetimePicker(id: "txtFechaNacimiento", format: "YYYY-MM-DD", label: "Fecha de nacimiento:", columnDataName: "FechaNacimiento")</div>
+                                <div class="col-md-4">@Html.CtrlInput(id: "txtEdad", type: "number", label: "Edad:", columnDataName: "Edad", onlyread: true)</div>
+                            </div>
+                            @Html.CtrlComboBox(id: "cbRole", label: "Role:", columnDataName: "RoleId", onlyread: true)
+                            @Html.CtrlComboBox(id: "cbTerminal", label: "Terminal principal:", columnDataName: "TerminalId", onlyread:true)
+                            <div class="row">
+                                <div class="col-md-8">@Html.CtrlInput(id: "txtSmsNotificationsMin", type: "number", label: "Mínimo de notificación (CRC):", columnDataName: "SmsNotificationsMin")</div>
+                                <div class="col-md-4">@Html.CtrlInput(id: "txtTelefono", type: "number", label: "Teléfono:", columnDataName: "Telefono")</div>
+                            </div>
+                            @Html.CtrlButton(viewName: "vPerfil", id: "btnUpdateUsuario", label: "Actualizar", onClickFunction: "UpdateUsuario", buttonType: "success")
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-key"></i> Contraseña</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="frmContrasena">
+                            @Html.CtrlDatetimePicker(id: "txtPasswordExpiration", format: "YYYY-MM-DD", label: "Fecha de expiración:", columnDataName: "PasswordExpiration", onlyread: true)
+                            @Html.CtrlInput(id: "txtPassword", type: "password", label: "Contraseña:", columnDataName: "Password")
+                            @Html.CtrlInput(id: "txtPasswordRep", type: "password", label: "Repita la Contraseña:", columnDataName: "PasswordRep")
+                            <ul>
+                                <li>Debe contener al menos 6 caracteres.</li>
+                                <li>Debe contener al menos una letra.</li>
+                                <li>Debe contener al menos un numero.</li>
+                                <li>No puede ser igual a las 6 contraseñas anteriores.</li>
+                            </ul>
+                            @Html.CtrlButton(viewName: "vPerfil", id: "btnUpdateContrasena", label: "Actualizar", onClickFunction: "UpdateContrasena", buttonType: "success")
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

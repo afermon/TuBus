@@ -1,0 +1,71 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Registrar Terminal";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+<link rel="stylesheet" href="~/Content/views/vRegistrarTerminal.css">
+}
+<!-- Scripts -->
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/Views/Terminal/vRegistrarTerminal.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8rX5rq-Ev5tUVYLqhFUwmQS1kwcrJfSU&callback=cargarMapaLugares"></script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-wpforms"></i> Registrar Terminal</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlInput(id: "txtTerminalName", type: "text", label: "Nombre Terminal", columnDataName: "TerminalName", placeHolder: "Digite el nombre de la terminal")
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>Localización geográfica</h3>
+                                        <p>Haga clic sobre la localización en el mapa.</p>
+                                    </div>
+                                    <div class="col-md-12" id="mapa-lugar"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        @Html.CtrlInput(id: "nLongitude", type: "number", label: "Longitud", columnDataName: "Longitude", placeHolder: "Haga clic en el mapa.", onlyread: true)
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.CtrlInput(id: "nLatitude", type: "number", label: "Latitud", columnDataName: "Latitude", placeHolder: "Haga clic en el mapa.", onlyread: true)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        @Html.CtrlInput(id: "nCantidadLineas", type: "number", label: "Cantidad de Lineas", columnDataName: "CantidadLineas", placeHolder: "Digite la cantidad de líneas")
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.CtrlInput(id: "nEspaciosParqueo", type: "number", label: "Espacios de parqueo público", columnDataName: "EspaciosParqueo", placeHolder: "Digite el # de espacios disponibles")
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.CtrlInput(id: "nEspaciosParqueoBus", type: "number", label: "Espacios de parqueo de bus", columnDataName: "EspaciosParqueoBus", placeHolder: "Digite el # de espacios disponibles")
+                                    </div>
+                                </div>
+                                @Html.CtrlButton(viewName: "vRegistrarTerminal", id: "btnRegistrarT", label: "Registrar", onClickFunction: "Create", buttonType: "primary btn-block")
+                            </form>
+                            <br>
+                            <label id="error"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

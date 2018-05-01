@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Parqueo Público";
+}
+
+<!-- Styles -->
+@section Styles {
+}
+<!-- Scripts -->
+@section Scripts {
+    <script src="~/Scripts/Views/ParqueoPublico/vParqueoPublico.js"></script>
+}
+
+<br />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-ticket"></i> Información de Parqueos Públicos
+            </div>
+            <div class="card-body">
+                <div class="row">                    
+                    <div class="col-lg-4">
+                        <div class="p-5 text-center">
+                            <h2 class="display-5">¡Evita las presas!</h2>
+                            <hr class="title-under-line-top">
+                            <hr class="title-under-line-bottom">
+                            <p>Revisa la disponibilidad de nuestros parqueos públicos, deja tu carro y viaja en nuestras líneas.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4"style="margin-top:50px">
+                        @Html.CtrlComboBox(id: "Terminales", label: "Selecciona una terminal:")
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="bs-component">
+                            <form id="frmParqueoPublico">
+                                @Html.CtrlInput(id: "txtPrecioDia", type: "text", label: "Precio por día: ", columnDataName: "CostoParqueoDia", onlyread: true)
+                                @Html.CtrlInput(id: "textPrecioHora", type: "text", label: "Precio por hora: ", columnDataName: "CostoParqueoHora", onlyread: true)
+                                @Html.CtrlInput(id: "txtTotalEspacios", type: "text", label: "Total de espacios: ", columnDataName: "EspaciosTotales", onlyread: true)
+                                @Html.CtrlInput(id: "txtEspaciosDisponibles", type: "text", label: "Espacios disponibles: ", columnDataName: "EspaciosDisponibles", onlyread: true)
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="mapaParqueo" class="table-responsive"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Lista de usuarios";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Usuario/vLista.js"></script>
+}
+
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vListaUsuarios", id: "listausuarios", title: "Usuarios",
+                                     columnsTitle: "Email,Nombre,Apellidos,Estado,Role,Acciones", columnsDataName: "Email,Nombre,Apellidos,Estado,RoleId,Acciones", onSelectFunction: "ActionControls")
+    </div>
+</div>
+

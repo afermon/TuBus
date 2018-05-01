@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+
+}
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-credit-card"></i> Solicitud de nueva tarjeta</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="frmIniciarTarjeta">
+                            @Html.CtrlInput(id: "txtNombre", type: "text", label: "Nombre de usuario:", columnDataName: "UserName", placeHolder: "Ingrese el nombre del usuario")
+                            @Html.CtrlInput(id: "txtEmail", type: "text", label: "Correo nuevo usuario:", columnDataName: "UserMail", placeHolder: "Ingrese el correo del usuario")
+                            @Html.CtrlComboBox(id: "Terminales", label: "Seleccione una terminal")
+                            @Html.CtrlComboBox(id: "TarjetasTipos", label: "Seleccione un tipo de tarjeta")
+                            @Html.CtrlButton(viewName: "vSolicitarTarjeta", id: "btnSolicitar", label: "Crear tarjeta", onClickFunction: "Create", buttonType: "success")
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Scripts -->
+@section FinalScripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/Views/Tarjeta/vSolicitarTarjeta.js"></script>
+}

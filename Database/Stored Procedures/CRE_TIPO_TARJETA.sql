@@ -1,0 +1,20 @@
+﻿CREATE PROCEDURE CRE_TIPO_TARJETA
+    @P_NOMBRE_TARJETA Nvarchar(45),
+	@P_DESCUENTO_TARIFA int
+AS 
+	Begin
+		SET NOCOUNT ON;  
+		INSERT INTO TBL_TIPOTARJETA
+          ( 
+			NOMBRE_TARJETA,
+			STATUS,
+			DESCUENTO_TARIFA
+          ) 
+     VALUES 
+          ( 
+            @P_NOMBRE_TARJETA,
+			1,
+			@P_DESCUENTO_TARIFA
+          ) 	
+	End
+GO  

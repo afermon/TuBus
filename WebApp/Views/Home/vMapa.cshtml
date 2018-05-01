@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Mapa";
+}
+
+<!-- Styles -->
+@section Styles {
+    <link rel="stylesheet" href="~/Content/views/vMapa.css">
+}
+<!-- Scripts -->
+@section Scripts {
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/Views/Home/vMapa.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8rX5rq-Ev5tUVYLqhFUwmQS1kwcrJfSU&callback=cargarMapa&sensor=false&extension=.js"></script>
+}
+
+<div id="mapa-rutas"></div>

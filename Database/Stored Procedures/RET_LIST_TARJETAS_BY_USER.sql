@@ -1,0 +1,12 @@
+﻿CREATE PROCEDURE [dbo].[RET_LIST_TARJETAS_BY_USER]  
+	@P_USUARIO nvarchar(50)	
+AS 
+	Begin
+		SET NOCOUNT ON;  
+		Select t.* from TBL_TARJETA as t
+		join TBL_ESTADO_TARJETA as e
+		on t.ESTADO_TARJETA_ID = e.TBL_ESTADO_TARJETA_ID
+		where e.NOMBRE_ESTADO = 'Activo' and  t.USUARIO = @P_USUARIO
+	End
+GO  
+

@@ -1,0 +1,42 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Registrar Queja";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/Queja/vRegistrarQuejas.js"></script>
+}
+
+<!-- Page Content -->
+<div class="col-md-6">
+    <div class="card mb-3">
+        <div class="card-header"><i class="fa fa-wpforms"></i> Registar Queja</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form id="frmEdition">
+                        @Html.CtrlInput(id: "txtQueja", type: "text", label: "Detalle de la queja", columnDataName: "DetalleQueja", placeHolder: "Digite la queja")
+                        @Html.CtrlComboBox(id: "cbRutas", label: "Rutas disponibles", columnDataName: "Ruta")
+                        @Html.CtrlCheckBox(id: "chbChofer", label: "Incluir el chofer")
+                        <div id="comboChofer" class="d-none">
+                            @Html.CtrlComboBox(id: "cbChofer", label: "Seleccione un chofer", columnDataName: "Chofer")
+                        </div>
+                        
+                        @Html.CtrlInput(id: "txtPlaca", type: "text", label: "Numero de placa (opcional)", columnDataName: "Placa", placeHolder: "Digite el número de placa")
+                        @Html.CtrlDatetimePicker(id: "datetimepick", format: "YYYY-MM-DDTHH:mm:ss", label: "Fecha Hora", columnDataName: "Hora")
+                        @Html.CtrlButton(viewName: "vRegistrarQuejas", id: "btnRegistrarQ", label: "Registrar", onClickFunction: "Create", buttonType: "primary btn-block")
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

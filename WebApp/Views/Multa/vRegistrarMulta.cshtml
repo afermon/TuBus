@@ -1,0 +1,43 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Registro de multa";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/form")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/form")
+    <script src="~/Scripts/Views/Multa/vRegistrarMulta.js"></script>
+}
+
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-wpforms"></i> Registro de multa</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bs-component">
+                            <form id="frmEdition">
+                                @Html.CtrlComboBox(id: "Empresas", label: "Seleccione una empresa")
+                                @Html.CtrlInput(id: "nMonto", type: "number", label: "Monto de la multa (CRC)", placeHolder: "0", columnDataName: "Monto")
+                                @Html.CtrlDatetimePicker(id: "datetimepick", format: "YYYY-MM-DD", label: "Fecha", columnDataName: "Fecha")
+                                @Html.CtrlInput(id: "txtDetalle", type: "text", label: "Motivo de la multa", placeHolder: "Motivo", columnDataName: "Detalle")
+                                @Html.CtrlButton(viewName: "vRegistrarMulta", id: "btnRegistrarT", label: "Registrar", onClickFunction: "Create", buttonType: "primary btn-block")
+                            </form>
+                            <br>
+                            <label id="error"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

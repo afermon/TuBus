@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[TBL_LIST](
+	[LIST_ID] [nvarchar](50) NOT NULL,
+	[VALUE] [nvarchar](10) NOT NULL,
+	[DESCRIPTION] [nvarchar](100) NOT NULL, 
+    CONSTRAINT [PK_TBL_LIST] PRIMARY KEY ([LIST_ID], [VALUE])
+)

@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    <link rel="stylesheet" href="../../Content/AdminLTE.min.css">
+    <!-- Payments css -->
+    <link rel="stylesheet" href="../../Content/payments.css">
+}
+
+@{
+    var dateNow = DateTime.Now.ToShortDateString();
+}
+<section class="invoice">
+    <!-- title row -->
+    <div class="row">
+        <div class="col-xs-12" style="width: 100%;">
+            <h2 class="page-header">
+                <i class="fa fa-globe"></i> Recargar tarjeta
+                <small class="pull-right">Fecha: @dateNow</small>
+            </h2>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- info row -->
+    <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+            Información del usuario
+            <address>
+                <strong id="name"></strong><br>
+                <span id="email"></span><br>
+                <span id="Phone"></span>
+            </address>
+        </div>      
+    </div>
+    <!-- Table row -->
+    <form id="recarga">
+        <div class="row">
+            <div class="col-xs-12 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Html.CtrlComboBox(id: "tarjetas", label: "Tarjeta a recargar")</td>
+                            <td>@Html.CtrlInput(id: "txtDescripcion", type: "text", label: "Descripción:", columnDataName: "Descripction", placeHolder: "Digite una descripción")</td>
+                            <td>@Html.CtrlInput(id: "txtMonto", type: "number", label: "Monto de recarga:", columnDataName: "Monto", placeHolder: "Digite el monto")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.col -->
+        </div>
+    </form>
+    <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-xs-6">
+            <p class="lead">Métodos de pago:</p>
+            <img src="../../img/credit/visa.png" alt="Visa">
+            <img src="../../img/credit/mastercard.png" alt="Mastercard">
+            <img src="../../img/credit/american-express.png" alt="American Express">
+            <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                Su tarjeta de crédito no será almacenada en nuestro sistema
+            </p>
+        </div>
+       
+    </div>
+    <!-- /.row -->
+    <!-- this row will not appear when printing -->
+    <div class="row no-print">
+        <div class="col-md-6 pull-right">
+            <!-- Form Element sizes -->
+            <div class="box box-success">
+                <form action="/charge" method="post" id="payment-form">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Tarjeta de crédito o débito</h3>
+                    </div>
+                    <div class="box-body">
+                        <div id="card-element">
+                            <!-- a Stripe Element will be inserted here. -->
+                        </div>
+                        <!-- Used to display form errors -->
+                        <div id="card-errors" role="alert"></div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-success pull-right">
+                            <i class="fa fa-credit-card"></i> Realizar Pago
+                        </button>
+                    </div>
+                    <!-- /.box-body -->
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</section>
+
+<!-- Scripts -->
+@section FinalScripts {
+    <script src="../../Scripts/jquery.validate.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../Scripts/adminlte.min.js"></script>
+    <!-- Stripe frontend library -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- Payment Custom JS -->
+    <script src="../../Scripts/payment.js"></script>
+}

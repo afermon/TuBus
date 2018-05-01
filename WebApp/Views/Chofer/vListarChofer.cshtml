@@ -1,0 +1,25 @@
+﻿@using WebApp.Helpers;
+
+@{
+    ViewBag.Title = "Lista Choferes";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<!-- Styles -->
+@section Styles {
+    @Styles.Render("~/Content/datatable")
+}
+
+<!-- Scripts -->
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatable")
+    <script src="~/Scripts/Views/Chofer/vListarChofer.js"></script>
+}
+
+<!-- Page Content -->
+<div class="row">
+    <div class="col-md-12">
+        @Html.CtrlTable(viewName: "vListarChofer", id: "listachofer", title: "Lista de Choferes",
+                                          columnsTitle: "Cedula,Nombre,Apellido,Licencia,Expiración,Estado,Acciones", columnsDataName: "Cedula,Nombre,Apellidos,NumeroLicencia,FechaExpiracion,Estado,Acciones", onSelectFunction: "ActionControls")
+    </div>
+</div>
